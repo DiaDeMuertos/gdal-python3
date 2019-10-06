@@ -29,17 +29,17 @@ if __name__ == "__main__":
     if len(images_4) == len(images_8):
         NDVI = '(B-A)/(B+A)'
         calcTemplate = 'gdal_calc.py -A %s -B %s --calc="%s" --outfile %s'
-    for i in range(len(images_4)):
-        imagen_name = basename(images_4[i])
-        fecha = imagen_name.split('_')[2]
-        out_name = '%s.tif' % (fecha[:8])
+        for i in range(len(images_4)):
+            imagen_name = basename(images_4[i])
+            fecha = imagen_name.split('_')[2]
+            out_name = '%s.tif' % (fecha[:8])
 
-        A = images_4[i]
-        B = images_8[i]
-        C = join(path_out, out_name)
+            A = images_4[i]
+            B = images_8[i]
+            C = join(path_out, out_name)
 
-        calc = calcTemplate % (A, B, NDVI, C)
-        system(calc)
+            calc = calcTemplate % (A, B, NDVI, C)
+            system(calc)
 
     else:
         print('FALTAN IMAGENES')
