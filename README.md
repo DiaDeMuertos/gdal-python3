@@ -15,10 +15,12 @@ $ docker build . -t gdal-python3
 
 ## Uso
 
-Una vez creada la imange podemos usarla. El contenedor que se ejecutara necestara que se le provee las rutas de las imanges, la salida y el codigo(para el caso de que necesite ser actualizado). El mando **\$(pwd)** es un comando de linux que se encarga de generar la ruta respecto al lugar donde nos encontramos. De ser necesario sustitulla por la ruta de forma explisita.
+Una vez creada la imange podemos usarla. El contenedor que se ejecutara necestara que se le provee las rutas de las imanges, la salida y el codigo(para el caso de que necesite ser actualizado). El mando **\$(pwd)** es un comando de linux que se encarga de generar la ruta respecto al lugar donde nos encontramos. De ser necesario sustitulla por la ruta de forma explicita.
 
 ```
 $ docker run -it --rm -v $(pwd)/images:/base/images -v $(pwd)/output:/base/output -v $(pwd)/src:/base/src gdal-python3
 ```
+
+El restado de la operacion sera depositada en la ruta que se proveo como output.
 
 **_nota: esta solucion fue probada en un sistema operativo linux_**
